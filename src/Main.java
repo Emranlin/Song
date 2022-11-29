@@ -20,6 +20,7 @@ public class Main {
             }
         }
     }
+
     public static void getFileReader(){
         try{
             FileReader fileReader=new FileReader("mySong.txt");
@@ -35,19 +36,17 @@ public class Main {
 
 
     public static void getFileWriter(){
+        Song song=new Song("Talking to the moon","Bruno Mars","\nI know you're somewhere out there\""+
+                "\nSomewhere far away"+
+                "\nI want you back, I want you back"+
+                "\nMy neighbors think I'm crazy");
+
         try(FileWriter fileWriter=new FileWriter("mySong.txt")){
-            fileWriter.write("**********************Talking to the Moon*************************************");
-            fileWriter.write("\n~~~~~~~~~~~~~~~~~Bruno Mars~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            fileWriter.write("\nI know you're somewhere out there");
-            fileWriter.write("\nSomewhere far away");
-            fileWriter.write("\nI want you back, I want you back");
-            fileWriter.write("\nMy neighbors think I'm crazy");
-            fileWriter.write("\nBut they don't understand");
-            fileWriter.write("\nYou're all I had, you're all I had");
-            fileWriter.write("\nAt night, when the stars light up my room");
-            fileWriter.write("\nI sit by myself");
-            fileWriter.write("\nTalking to the moon");
-            fileWriter.write("\nTrying to get to you");
+            fileWriter.write("Name of the song:  " + song.getTitle());
+            fileWriter.write("\nAuthor's name:  " + song.getAuthor());
+            fileWriter.write(song.getText());
+
+
         }catch (IOException e){
             e.printStackTrace();
         }
